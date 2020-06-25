@@ -1,0 +1,53 @@
+<div class="modal-header">
+    <button type="button" class="close pull-right" aria-label="Close" (click)="closeModal()">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <div class="Signin-form">
+        <form [formGroup]="signupForm">
+            <h2 class="text-center">Sign Up</h2>
+            <p>Please provide following details</p>
+
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Name *" formControlName="name" trim="blur">
+                <p class="error" *ngIf="signup['name'].errors && signupForm.get('name').touched ">
+                    <span *ngIf="signup['name'].errors.required">Name is required</span>
+                </p>
+            </div>
+
+            <div class="form-group">
+                <input type="email" class="form-control" placeholder="Email *" formControlName="email">
+                <p class="error" *ngIf="signup['email'].errors && signupForm.get('email').touched ">
+                    <span *ngIf="signup['email'].errors.required">Email is required</span>
+                    <span *ngIf="signup['email'].errors.pattern">Email is not valid</span>
+                </p>
+            </div>
+
+            <div class="form-group">
+                <input type="password" class="form-control" placeholder="Password *" formControlName="password">
+                <p class="error" *ngIf="signup['password'].errors && signupForm.get('password').touched">
+                    <span *ngIf="signup['password'].errors.required">Password id required</span>
+                    <span *ngIf="signup['password'].errors.pattern && !signup['password'].errors.required">Password is
+                        not valid</span>
+                </p>
+            </div>
+            <div _ngcontent-opg-c16="" class="info-message"><sup>*</sup>Note: Use 6 to 12 characters with atleast one
+                upper case letter and one lower case letter.
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" placeholder="Confrim Password *"
+                    formControlName="confirmPassword">
+                <p class="error" *ngIf="signup['confirmPassword'].errors && signupForm.get('confirmPassword').touched">
+                    <span *ngIf="signup['confirmPassword'].errors.required">Re enter password </span>
+                    <span *ngIf="signup['confirmPassword'].errors.notEquivalent">Password not matches</span>
+                </p>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary sign-in" [disabled]="!signupForm.valid"
+                    (click)="submit()">Sign up</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-lg navbar-light shadow fixed-top">
+    <div class="container-fluid">
+        <div class="navnbar-cover">
+            <a class="navbar-brand" [routerLink]="['/login']"><img src=""></a>
+            <div class="right-nav-section ml-auto d-flex">
+
+                <div [ngClass]="{'collapse': loggedUser, 'logout': !loggedUser}" class="navbar-collapse"
+                    id="navbarResponsive">
+                    <ul class="navbar-nav">
+                        <li class="nav-item signup-item btn-section">
+                            <button class="btn btn-success" (click)="openModalSignUp(signupform)">Sign Up</button>
+                            <button class="btn btn-success" (click)="openModalSignIn(login)">Sign
+                                In</button>
+                        </li>
+
+                        <li class="nav-item signup-item btn-section" *ngIf="loggedUser && loggedUser.token">
+                            <button class="btn" [routerLink]="['/category/list']">Category</button>
+                            <button class="btn btn-success" (click)="logout()">Log Out</button>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Login -->
+<ng-template #login>
+    <app-sign-in (closeModalEvent)="closeModal()"></app-sign-in>
+</ng-template>
+<!-- End -->
+
+<ng-template #signupform>
+    <app-sign-up (closeModalEvent)="closeModal()"></app-sign-up>
+</ng-template>

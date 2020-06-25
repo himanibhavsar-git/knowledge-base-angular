@@ -1,0 +1,23 @@
+stages:
+  - build
+  - deploy
+
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+  - node_modules/
+  - dist/
+
+build_development:
+  stage: build
+  script:
+  - npm install
+  - npm run build-universal
+  only: ['development']
+  
+deploy_development:
+  stage: deploy
+  script:
+  - rsync -zvhr -e ssh dist/ ubuntu@$Server_IP:/var/sites/development/knowledge-base-angular/dist/
+  - ssh ubuntu@$Server_IP 'pm2 restart api'
+  only: ['development']
