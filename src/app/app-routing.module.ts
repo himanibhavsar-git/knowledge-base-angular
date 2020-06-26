@@ -24,8 +24,9 @@ const routes: Routes = [
 export class AppRoutingModule {
   // For not displaying errors to users
   constructor(private router: Router) {
-    this.router.errorHandler = (error: any) => {
-      this.router.navigate(['home']); // or redirect to default route
-    };
+    // TODO uncomment below code if you don't want to display errors to users
+    // this.router.errorHandler = (error: any) => {
+    //   this.router.navigate(['home']); // or redirect to default route
+    // };
   }
 }
