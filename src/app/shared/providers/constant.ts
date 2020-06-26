@@ -9,11 +9,10 @@ export const constant = {
 export const headerUrls = [
     '/',
     '/home',
-    '/category'
 ];
 
 export const Pagination = {
     rotate: true,
     maxSize: 5,
-    itemsPerPage: 12,
+    itemsPerPage: 10,
 };

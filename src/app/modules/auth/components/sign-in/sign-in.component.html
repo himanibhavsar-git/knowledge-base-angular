@@ -3,6 +3,8 @@
         <span aria-hidden="true">&times;</span>
     </button>
 </div>
+
+<!-- Start -->
 <div class="modal-body">
     <div class="Signin-form">
         <form [formGroup]="signinForm">
@@ -29,11 +31,8 @@
                     [disabled]="!signinForm.valid">Sign In</button>
 
             </div>
-            <div class="col-12">
-                <button class="login-with-google large-button" size="large" shape="round" (click)="doGoogleLogin()"><img
-                        src="assets/images/google-plus.png">Login with Google
-                </button>
-            </div>
+            <button class="btn login-with-google forgot-password" size="large" shape="round"
+                (click)="doGoogleLogin()"><img src="assets/images/google-plus.png"> Login with Google</button><br />
             <a class="forgot-password" (click)="openSignup()">Sign Up</a>
         </form>
     </div>

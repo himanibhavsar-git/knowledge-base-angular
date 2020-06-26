@@ -13,8 +13,8 @@
                                 In</button>
                         </li>
 
-                        <li class="nav-item signup-item btn-section" *ngIf="loggedUser && loggedUser.token">
-                            <button class="btn" [routerLink]="['/category/list']">Category</button>
+                        <li class="nav-item signup-item btn-section" *ngIf="loggedUser">
+                            <button class="btn btn-success" [routerLink]="['/category']">Category</button>
                             <button class="btn btn-success" (click)="logout()">Log Out</button>
                         </li>
                     </ul>

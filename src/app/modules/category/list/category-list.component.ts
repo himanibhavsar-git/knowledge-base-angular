@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { IImage } from 'ng-simple-slideshow';
 import { HttpRequestsService } from 'src/app/shared/providers/http-requests.service';
-import { ActivatedRoute } from '@angular/router';
 import { HelperService } from 'src/app/shared/providers/helper.service';
 import { ApiResponse } from 'src/app/models/response';
 import { Pagination } from 'src/app/shared/providers/constant';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-category-list',
@@ -16,20 +16,21 @@ export class CategoryListComponent implements OnInit {
   public imageSources: (string | IImage)[] = [];
   public imageHeight: string;
   public categories: any[];
+
   // Pagination
   public totalRows: number;
   public currentPage = 1;
-  pagination = Pagination;
+  public pagination = Pagination;
 
   constructor(
     private httpService: HttpRequestsService,
     private route: ActivatedRoute,
+
     private helperService: HelperService,
   ) { }
 
   ngOnInit() {
     this.pagination.itemsPerPage = 10;
-
     this.getCategories();
   }
 

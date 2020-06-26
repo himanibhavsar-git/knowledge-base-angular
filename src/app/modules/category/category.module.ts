@@ -6,10 +6,12 @@ import { CategoryListComponent } from './list/category-list.component';
 import { SlideshowModule } from 'ng-simple-slideshow';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AddCategoryComponent } from './add-category/add-category.component';
+import { AddContentComponent } from './add-content/add-content.component';
 
 @NgModule({
-  declarations: [CategoryListComponent],
+  declarations: [CategoryListComponent, AddCategoryComponent, AddContentComponent],
   imports: [
     CommonModule,
     CategoryRoutingModule,
@@ -17,6 +19,7 @@ import { FormsModule } from '@angular/forms';
     PaginationModule.forRoot(),
     SharedModule,
     FormsModule,
+    ReactiveFormsModule
   ],
   exports: []
 })

@@ -11,7 +11,9 @@ const routes: Routes = [
   {
     path: 'login', loadChildren: () => import('./modules/auth/auth.module').then(m => m.AuthModule)
   },
-  { path: 'category', canActivate: [AuthGuard], loadChildren: './modules/category/category.module#CategoryModule' },
+  {
+    path: 'category', loadChildren: () => import('./modules/category/category.module').then(m => m.CategoryModule)
+  },
   { path: '**', redirectTo: '/home' },
 ];
 
@@ -20,6 +22,7 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule {
+  // For not displaying errors to users
   constructor(private router: Router) {
     this.router.errorHandler = (error: any) => {
       this.router.navigate(['home']); // or redirect to default route

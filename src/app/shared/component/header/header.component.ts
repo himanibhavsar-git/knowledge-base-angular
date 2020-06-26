@@ -3,9 +3,7 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { AuthenticationService } from '../../providers/authentication.service';
 import { LocalStorageService } from '../../providers/local-storage.service';
 import { Router } from '@angular/router';
-import { HttpRequestsService } from 'src/app/shared/providers/http-requests.service';
 import { HelperService } from 'src/app/shared/providers/helper.service';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 declare var jQuery: any;
 @Component({
@@ -25,7 +23,6 @@ export class HeaderComponent implements OnInit, AfterViewChecked {
     private localstorage: LocalStorageService,
     private authenticationService: AuthenticationService,
     private router: Router,
-    private httpRequest: HttpRequestsService,
     private helperService: HelperService,
   ) {
     authenticationService.getloggedUser.subscribe(() => this.getUserData());

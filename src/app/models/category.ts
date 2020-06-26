@@ -1,7 +1,3 @@
-export class Category {
-    name: string;
-}
-
 export class Content {
     text: string;
     categoryId: number;

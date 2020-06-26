@@ -3,7 +3,7 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { HttpRequestsService } from 'src/app/shared/providers/http-requests.service';
 import { LocalStorageService } from 'src/app/shared/providers/local-storage.service';
-import { SignUp, UploadProfile } from 'src/app/models/auth';
+import { SignUp } from 'src/app/models/auth';
 import { RegexEnum } from 'src/app/shared/providers/regex';
 import { ValidationService } from 'src/app/shared/providers/validation.service';
 import { Router } from '@angular/router';
@@ -24,7 +24,6 @@ export class SignUpComponent implements OnInit {
     private formbuilder: FormBuilder,
     private httpRequest: HttpRequestsService,
     private localstorage: LocalStorageService,
-    private bsModalService: BsModalService,
     private router: Router,
   ) { }
 

@@ -1,0 +1,20 @@
+<div class="add-eddi-sec">
+  <div class="container">
+    <form [formGroup]="addContentForm">
+      <h2 class="text-center">New Content</h2>
+      <div class="form-group">
+        <textarea type="text" placeholder="Add content...." formControlName="text" rows="10" cols="50"></textarea>
+        <p class="error" *ngIf="addContentForm.get('text').touched && addContent['text'].errors">
+          <span *ngIf="addContent['text'].errors.required">Content required</span>
+        </p>
+      </div>
+
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary sign-in" (click)="submit()"
+          [disabled]="!addContentForm.valid">Save</button>
+
+      </div>
+
+    </form>
+  </div>
+</div>

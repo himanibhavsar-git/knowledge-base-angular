@@ -1,0 +1,79 @@
+.add-eddi-sec {
+    width: 100%;
+    float: left;
+    margin-top: 30px;
+
+    form {
+        // border: solid 1px #ccc;
+        box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+        padding: 10px 20px 20px;
+        margin-bottom: 60px;
+        margin-top: 30px;
+
+        h4 {
+            letter-spacing: 0.4px;
+            text-align: left;
+            color: #434343;
+            font-size: 20px;
+            font-weight: normal;
+            font-family: Roboto;
+            width: 100%;
+            float: left;
+            padding-left: 15px;
+            margin: 25px 0 15px;
+        }
+
+        p {
+            letter-spacing: 0.36px;
+            text-align: left;
+            color: #676767;
+            font-family: Roboto;
+            font-size: 18px;
+            font-weight: normal;
+        }
+
+        .form-group {
+            width: 100%;
+            float: left;
+            margin-top: 30px;
+
+            .form-control {
+                border-radius: 3px;
+                background-color: #fafafa;
+                border: none;
+                height: 50px;
+                line-height: 50px;
+                font-size: 14px;
+            }
+
+            p.error {
+                font-size: 12px !important;
+                color: #cc5801;
+                margin: 0;
+            }
+        }
+
+        .form-group.center {
+            text-align: center;
+            margin-top: 30px;
+
+            button {
+                border-radius: 4px;
+                background-color: #424242;
+                border: none;
+                margin-right: 15px;
+                // width: 120px;
+            }
+
+            button.sign-in {
+                background: none;
+                border: solid 1px #8b8b8b !important;
+                color: #151414;
+            }
+        }
+
+
+
+    }
+}

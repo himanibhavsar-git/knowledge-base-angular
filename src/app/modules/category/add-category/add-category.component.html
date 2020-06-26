@@ -1,0 +1,20 @@
+<div class="add-eddi-sec">
+  <div class="container">
+    <form [formGroup]="addCategoryForm">
+      <h2 class="text-center">New Category</h2>
+      <div class="form-group">
+        <input type="text" class="form-control" formControlName="name" placeholder="Category Name">
+        <p class="error" *ngIf="addCategory['name'].errors && addCategoryForm.get('name').touched">
+          <span *ngIf="addCategory['name'].errors.required">Category Name is required</span>
+        </p>
+      </div>
+
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary sign-in" (click)="submit()"
+          [disabled]="!addCategoryForm.valid">Save</button>
+
+      </div>
+
+    </form>
+  </div>
+</div>

@@ -5,19 +5,26 @@
             <div class="col-lg-12">
                 <h2>Categories</h2>
                 <div class="row">
+                    <button class="btn btn-primary sign-in" [routerLink]="['/category/add']">Add
+                        Category</button>
+                </div>
+                <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12">
                         <div class="blog-item" *ngFor="let category of categories">
                             <h3>{{category.name}}</h3>
+                            <button class="btn btn-primary pull-right sign-in"
+                                [routerLink]="['/category/add/content', category?.id]">Add
+                                Content</button>
                             <p [innerHTML]="category.text"></p>
                             <span *ngFor="let attachment of category.attachments">
-                                <img src="attachment">
+                                <img src="{{attachment}}">
                             </span>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="col-lg-12 col-md-12 col-sm-12" *ngIf="totalRows">
                     <pagination [rotate]="pagination?.rotate" [maxSize]="pagination?.maxSize"
                         [itemsPerPage]="pagination?.itemsPerPage" [(ngModel)]="currentPage"
                         (pageChanged)="pageChanged($event)" class="pull-right" [totalItems]="totalRows">
@@ -26,6 +33,5 @@
             </div>
         </div>
     </div>
-</div>
 </div>
 <!-- Categories section end -->

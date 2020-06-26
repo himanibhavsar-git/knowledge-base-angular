@@ -17,7 +17,6 @@ export class HttpRequestsService {
   private hostUrl = environment.API_URL;
   public isVerifiedUser = new Subject();
   private isUserVerifiedOrNot = true;
-  public ErrorTranslation: { SERVER_ERROR_OR_NO_INTERNET: any; ERROR_TITLE: any; OKAY_TEXT: any; SUCCESS_TITLE: any; };
   constructor(
     public http: HttpClient,
     private spinner: NgxSpinnerService,
@@ -100,7 +99,7 @@ export class HttpRequestsService {
     } else if (err.status === 500) {
       this.error(err.error.error);
     } else if (err.status === 0) {
-      this.error(this.ErrorTranslation.SERVER_ERROR_OR_NO_INTERNET);
+      this.error('There is no network connection right now. Please try again later or server not responding properly.');
     }
   }
 
@@ -116,22 +115,22 @@ export class HttpRequestsService {
 
   error(message: string) {
     Swal.fire({
-      title: this.ErrorTranslation.ERROR_TITLE,
+      title: 'Error!',
       text: message,
       icon: 'error',
       timer: 3000,
-      confirmButtonText: this.ErrorTranslation.OKAY_TEXT
+      confirmButtonText: 'Okay'
     });
     this.hideLoading();
   }
 
   async success(message) {
     Swal.fire({
-      title: this.ErrorTranslation.SUCCESS_TITLE,
+      title: 'Success!',
       text: message,
       icon: 'success',
       timer: 1000,
-      confirmButtonText: this.ErrorTranslation.OKAY_TEXT
+      confirmButtonText: 'Okay'
     });
   }
 

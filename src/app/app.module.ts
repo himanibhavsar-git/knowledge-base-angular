@@ -17,7 +17,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Ng5SliderModule } from 'ng5-slider';
 import localeFr from '@angular/common/locales/fr';
 import { HelperService } from './shared/providers/helper.service';
-import { SocialLoginModule, AuthServiceConfig, GoogleLoginProvider, FacebookLoginProvider, AuthService } from 'angular-6-social-login';
+import { SocialLoginModule, AuthServiceConfig, GoogleLoginProvider } from 'angular-6-social-login';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // Configs
 export function getAuthServiceConfigs() {
@@ -33,7 +35,7 @@ export function getAuthServiceConfigs() {
 registerLocaleData(localeFr);
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -46,6 +48,9 @@ registerLocaleData(localeFr);
     BrowserAnimationsModule,
     Ng5SliderModule,
     SocialLoginModule,
+    PaginationModule.forRoot(),
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     AuthGuard,
